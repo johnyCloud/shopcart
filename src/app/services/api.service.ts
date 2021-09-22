@@ -15,8 +15,6 @@ export class ApiService {
 
   getProducts():Observable<Product[]>{
     let productsUrl = this.url + "products/";
-    return this.http.get(productsUrl).pipe(res=>{
-      
-    })
+    return this.http.get<Product[]>(productsUrl);
   }
 }

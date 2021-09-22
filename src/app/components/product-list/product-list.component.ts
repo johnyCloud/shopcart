@@ -10,7 +10,7 @@ import { __values } from 'tslib';
 })
 export class ProductListComponent implements OnInit {
 
-  private products: Product[] = [];
+  products!: Product[];
 
   constructor(private api: ApiService) { }
 
@@ -22,7 +22,7 @@ export class ProductListComponent implements OnInit {
 
   getProductList(){
     this.api.getProducts().subscribe((res)=>{
-      this.products = __values(res);
+      this.products = [...res];
     })
   }
 

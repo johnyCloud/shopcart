@@ -1,1 +1,10 @@
-<p>product-list works!</p>
+<ng-template [ngIf]="products">
+    <ul>
+        <li *ngFor="let product of products">
+            <app-product [product]="product"></app-product>
+        </li>
+    </ul>
+</ng-template>
+<ng-template #elseBlock>
+    Loading...
+</ng-template>
