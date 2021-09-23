@@ -10,8 +10,8 @@ import { ProductsService } from '../service/products.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[]= this.productsService.getItems();;
-
+  
+  products?: Product[]
   constructor(
     //private api: ApiService,
     private productsService: ProductsService
@@ -20,6 +20,8 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     //this.getProductList();
     //this.products 
+    this.products = this.productsService.getItems();
+    console.log(this.products);
     
   }
 

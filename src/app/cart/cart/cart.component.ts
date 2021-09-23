@@ -26,4 +26,16 @@ export class CartComponent implements OnInit {
   getTotalById(id : number ){
     return this.totals?.find(elemnt => elemnt.id === id)?.total;
   }
+  getTotalPrice(){
+    let price = 0;
+    this.totals?.forEach(item=>{
+      let pr = this.cartList?.find(el => el.id === item.id)?.price ;
+      price += pr! * item.total
+    })
+    return price;
+  }
+  clear(){
+    this.cartList = this.cartService.clearCart();
+    this.totals = [];
+  }
 }

@@ -10,6 +10,8 @@ import { FooterComponent } from './footer/footer.component';
 
 //add
 import { PorductsModule } from '../porducts/porducts.module';
+import { MainComponent } from './main/main/main.component';
+
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { PorductsModule } from '../porducts/porducts.module';
     HomeComponent,
     NavbarComponent,
     DetailsComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent
   ],
   imports: [
     AppRoutingModule,
@@ -28,7 +31,8 @@ import { PorductsModule } from '../porducts/porducts.module';
     HomeComponent,
     NavbarComponent,
     DetailsComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent
   ]
  
 })

@@ -1,0 +1,17 @@
+1 basic layout +
+2 from main page to product list +
+3 product list +
+4 infinite scroll -
+5 singale product ditails page +
+6 add product to cartt +
+7 display total count of products +
+8 dysplay products in cart +
+    8.1 increment/decrement +
+    8.2 remove products from cart +
+    8.3 display total amount +
+    8.6 checkout button +
+9 checkout page dysplay all products +
+10 remove items from checkout +
+11 checkout form order the products +
+12 keep products from cart in localstoage
+/ sync them with the cart -

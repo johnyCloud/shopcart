@@ -43,6 +43,13 @@ export class CartService {
     }
   }
 
+  remove(id: number){
+    this.cartList = this.cartList.filter(item => item.id !== id);
+    this.totals = this.totals.filter(item => item.id !== id);
+    console.log(this.cartList);
+    
+  }
+
   clearCart(){
     this.cartList = [];
     this.totals = [];
