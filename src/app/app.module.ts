@@ -3,31 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartComponent } from './components/cart/cart.component';
-import { HomeComponent } from './components/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { DetailsComponent } from './components/details/details.component';
-
+import { CartComponent } from './cart/cart/cart.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ApiService } from './services/api.service';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductComponent } from './components/product/product.component';
+
+import { CoreModule } from './core/core.module';
+import { PorductsModule} from './porducts/porducts.module';
+import { SharedModule } from './shared/shared.module';
+import { CartModule } from './cart/cart.module';
+
 @NgModule({
   declarations: [
-    AppComponent,
-    CartComponent,
-    HomeComponent,
-    NavbarComponent,
-    DetailsComponent,
-    ProductListComponent,
-    ProductComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule,
+    PorductsModule,
+    SharedModule,
+    CartModule,
   ],
-  providers: [ApiService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

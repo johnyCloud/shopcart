@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product';
-import { ApiService } from 'src/app/services/api.service';
-import { __values } from 'tslib';
+import { Product } from 'src/app/porducts/models/product';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-product-list',
