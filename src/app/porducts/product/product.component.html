@@ -1,3 +1,8 @@
-<div>
-    {{product.title}} <a routerLink="item/1">details</a>
+<div class="card " style="width: 18rem;">
+    <img class="img-fluid"src={{product.image}} class="card-img-top" alt="..." style="max-height: 300px; overflow: hidden;">
+    <div class="card-body">
+        <h5 class="card-title" style="max-height: 25px; overflow: hidden;">{{product.title}}</h5>
+        <p class="card-text" style="max-height: 100px; overflow: hidden;">{{product.description}}</p>
+        <a routerLink="item/{{product.id}}" class="btn btn-primary">details</a>  <button class="btn btn-primary mx-3" (click)="addToCart(product)">Add to Cart</button>
+      </div>
 </div>

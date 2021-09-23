@@ -1,9 +1,12 @@
 <ng-template [ngIf]="products">
-    <ul>
-        <li *ngFor="let product of products">
-            <app-product [product]="product"></app-product>
-        </li>
-    </ul>
+    <div class="d-flex flex-wrap p-3 p-3">
+        
+            <div class="p-3" *ngFor="let product of products">
+                <app-product [product]="product"></app-product>
+            </div>
+        
+    </div>
+    
 </ng-template>
 <ng-template #elseBlock>
     Loading...

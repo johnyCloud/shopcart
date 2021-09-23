@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/porducts/models/product';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { ProductsService } from '../service/products.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,20 +10,19 @@ import { ApiService } from 'src/app/shared/services/api.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products!: Product[];
+  products: Product[]= this.productsService.getItems();;
 
-  constructor(private api: ApiService) { }
+  constructor(
+    //private api: ApiService,
+    private productsService: ProductsService
+    ) { }
 
   ngOnInit(): void {
-    this.getProductList();
-    console.log(this.products);
+    //this.getProductList();
+    //this.products 
     
   }
 
-  getProductList(){
-    this.api.getProducts().subscribe((res)=>{
-      this.products = [...res];
-    })
-  }
+  
 
 }

@@ -8,7 +8,7 @@ export class ProductsService {
   products: Product[] = [];
 
   addItems(items: Product[]){
-    this.products = [...this.products, ...items];
+    this.products = [...items];
   }
   getItems() {
     return this.products;

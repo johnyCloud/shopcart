@@ -1,1 +1,3 @@
-<p>cart works!</p>
+<ul>
+    <li *ngFor="let item of cartList">{{item.title}} <button (click)="plus(item.id)">+</button>{{getTotalById(item.id)}}<button (click)="minus(item.id)">-</button></li>
+</ul>
