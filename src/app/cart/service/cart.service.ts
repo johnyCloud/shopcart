@@ -19,6 +19,7 @@ export class CartService {
       this.cartList.push(item);
       this.totals.push({id: item.id, total: 1});
     }
+    
   }
 
   addItems(items: Product[]){
@@ -27,7 +28,13 @@ export class CartService {
     })
   }
   addTotals(totals: Totals[]){
-    this.totals = totals;
+    // let newTotals: Totals[] = totals;
+    totals.forEach(item => {
+      if (!this.totals.find(el =>  el.id === item.id)){
+        this.totals.push(item);
+      }
+    })
+
   }
 
   getItems(){

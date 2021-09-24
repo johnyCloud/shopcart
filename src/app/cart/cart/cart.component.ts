@@ -62,8 +62,4 @@ export class CartComponent implements OnInit {
     this.localStorge.set(this.key, {cartList : this.cartList, totals: this.totals});
   }
 
-  slo(e: any){
-    console.log(e);
-    
-  }
 }
