@@ -8,6 +8,8 @@ import { FormComponent } from './form/form.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { TabelComponent } from './tabel/tabel.component';
+
 
 
 
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     CartComponent,
     CheckoutComponent,
-    FormComponent
+    FormComponent,
+    TabelComponent,
+
   ],
   imports: [
     CommonModule,

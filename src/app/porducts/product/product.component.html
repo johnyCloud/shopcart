@@ -3,6 +3,7 @@
     <div class="card-body">
         <h5 class="card-title" style="max-height: 25px; overflow: hidden;">{{product.title}}</h5>
         <p class="card-text" style="max-height: 100px; overflow: hidden;">{{product.description}}</p>
+        <p class="card-text">Price: <span>{{product.price | currency}}</span></p>
         <a routerLink="item/{{product.id}}" class="btn btn-primary">details</a>  <button class="btn btn-primary mx-3" (click)="addToCart(product)">Add to Cart</button>
       </div>
 </div>

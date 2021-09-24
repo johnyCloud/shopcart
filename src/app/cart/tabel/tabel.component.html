@@ -14,11 +14,8 @@
             <th scope="row">{{item.id}}</th>
             <td>{{item.title}}</td>
             <td><img class="img-thumbnail" src={{item.image}} alt="" style="max-width: 50px;"></td>
-            <td>{{item.price}}</td>
-            <td>{{getTotalById(item.id)}} <button class="btn btn-danger" (click)="remove(item.id)">X</button></td>
+            <td>{{item.price |  currency}}</td>
+            <td><button class="btn" (click)="eventplus(item.id)">+</button>{{getTotal(item.id)}}<button class="btn" (click)="eventminus(item.id)">-</button></td>
          </tr>
     </tbody>
   </table>
-  <h6>Price: {{getTotalPrice() |  currency}}</h6>
-
-  <app-form></app-form>
