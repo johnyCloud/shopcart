@@ -18,6 +18,7 @@ export class CartComponent implements OnInit {
 
   cartList?: Product[];
   totals?: Totals[];
+  cartFlag = 1;
   key:string = "CART-LIST"
 
   ngOnInit(): void {

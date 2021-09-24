@@ -1,4 +1,6 @@
-<table class="table">
+<app-tabel [cartList]="cartList" [totals]="totals" [getTotal]="getTotalById" [checkFlag]="checkFlag" (tminus)="remove($event)" ></app-tabel>
+
+<!-- <table class="table">
     <thead>
       <tr>
         <th scope="col">id</th>
@@ -18,7 +20,7 @@
             <td>{{getTotalById(item.id)}} <button class="btn btn-danger" (click)="remove(item.id)">X</button></td>
          </tr>
     </tbody>
-  </table>
+  </table> -->
   <h6>Price: {{getTotalPrice() |  currency}}</h6>
 
   <app-form></app-form>

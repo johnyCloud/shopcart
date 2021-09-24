@@ -11,12 +11,15 @@ export class TabelComponent implements OnInit {
 
   @Input() cartList?: Product[];
   @Input() totals?: Totals[];
+  @Input() getTotal!: (args: any) => any;
+  @Input() checkFlag?: number;
+  @Input() cartFlag?: number;
   @Output() tminus:EventEmitter<number>= new EventEmitter<number>();
   @Output() tplus: EventEmitter<number>= new EventEmitter<number>();
-  @Input() getTotal!: (args: any) => any;
   constructor() { }
 
   ngOnInit(): void {
+    
   }
   eventminus(id: number){
     this.tminus.emit(id);
@@ -24,4 +27,5 @@ export class TabelComponent implements OnInit {
   eventplus(id: number){
     this.tplus.emit(id);
   }
+
 }

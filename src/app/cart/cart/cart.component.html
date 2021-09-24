@@ -1,4 +1,4 @@
-<app-tabel [cartList]="cartList" [totals]="totals" [getTotal]="getTotalById" (tminus)="minus($event)" (tplus)="plus($event)"></app-tabel>
+<app-tabel [cartList]="cartList" [totals]="totals" [getTotal]="getTotalById" [cartFlag]="cartFlag" (tminus)="minus($event)" (tplus)="plus($event)"></app-tabel>
   <div>
       <h6>Price: {{getTotalPrice() |  currency}}</h6>
      <button class="btn btn-danger" (click)="clear()">Clear Cart</button>

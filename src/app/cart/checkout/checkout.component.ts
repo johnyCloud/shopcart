@@ -14,6 +14,7 @@ export class CheckoutComponent implements OnInit {
 
   cartList?: Product[];
   totals?: Totals[];
+  checkFlag = 1;
   ngOnInit(): void {
     this.cartList = this.cartService.getItems();
     this.totals = this.cartService.getTotals();
