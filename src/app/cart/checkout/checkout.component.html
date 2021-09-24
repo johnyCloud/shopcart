@@ -15,7 +15,7 @@
             <td>{{item.title}}</td>
             <td><img class="img-thumbnail" src={{item.image}} alt="" style="max-width: 50px;"></td>
             <td>{{item.price}}</td>
-            <td>{{getTotalById(item.id)}} <button class="btn btn-danger" (click)="remove(item.id)">--</button></td>
+            <td>{{getTotalById(item.id)}} <button class="btn btn-danger" (click)="remove(item.id)">X</button></td>
          </tr>
     </tbody>
   </table>

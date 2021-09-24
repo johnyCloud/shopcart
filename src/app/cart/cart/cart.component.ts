@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/porducts/models/product';
 import { CartService } from '../service/cart.service';
+import { LocalStorageService } from '../service/local-storage.service';
 import { Totals } from '../service/totals';
 
 @Component({
@@ -10,22 +11,37 @@ import { Totals } from '../service/totals';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private cartService: CartService) { }
+  constructor(
+    private cartService: CartService,
+    private localStorge: LocalStorageService
+    ) { }
 
   cartList?: Product[];
   totals?: Totals[];
+  key:string = "CART-LIST"
+
   ngOnInit(): void {
+    if(this.localStorge.isLocalStorageSupported){
+      let localList = this.localStorge.get(this.key);
+      if (localList?.cartList.length){
+        this.cartService.addItems(<Product[]>localList.cartList);
+        this.cartService.addTotals(localList.totals)
+      }
+    }
     this.cartList = this.cartService.getItems();
     this.totals = this.cartService.getTotals();
-    console.log(this.cartList, this.totals);
-    
   }
 
-  plus(id : number){this.cartService.plus(id)}
-  minus(id : number){this.cartService.minus(id)}
+  plus(id : number){this.totals = this.cartService.plus(id)}
+  minus(id : number){
+    this.totals = this.cartService.minus(id)
+    this.cartList = this.cartService.getItems();
+  }
+
   getTotalById(id : number ){
     return this.totals?.find(elemnt => elemnt.id === id)?.total;
   }
+
   getTotalPrice(){
     let price = 0;
     this.totals?.forEach(item=>{
@@ -34,8 +50,14 @@ export class CartComponent implements OnInit {
     })
     return price;
   }
+
   clear(){
     this.cartList = this.cartService.clearCart();
     this.totals = [];
+    this.localStorge.remove(this.key);
+  }
+
+  checkout(){
+    this.localStorge.set(this.key, {cartList : this.cartList, totals: this.totals});
   }
 }

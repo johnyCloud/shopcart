@@ -26,5 +26,5 @@
   <div>
       <h6>Price: {{getTotalPrice()}}</h6>
      <button class="btn btn-danger" (click)="clear()">Clear Cart</button>
-     <a class="btn btn-primary mx-3" routerLink="checkout" >CheckOut</a>
+     <a class="btn btn-primary mx-3" (click)="checkout()" routerLink="checkout" >CheckOut</a>
   </div>

@@ -26,6 +26,8 @@ export class FormComponent implements OnInit {
   onSubmit(): void {
     this.cartService.clearCart();
     console.warn('Purchase order sent.Have a nice day!');
+    console.log(this.checkoutForm.value)
+    console.log(this.cartService.getItems(), this.cartService.getTotals())
     this.checkoutForm.reset();
   }
 

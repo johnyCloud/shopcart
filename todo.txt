@@ -14,4 +14,4 @@
 10 remove items from checkout +
 11 checkout form order the products +
 12 keep products from cart in localstoage
-/ sync them with the cart -
+/ sync them with the cart +

@@ -4,7 +4,7 @@ import { AppRoutingModule } from '../app-routing.module';
 
 
 import { HomeComponent } from './home/home.component';
-import {DetailsComponent} from './details/details.component';
+import { DetailsComponent } from './details/details.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 
