@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../../porducts/models/product'
+import { Product } from '../../porducts/models/product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalStorageService {
   //static key = "CART-LIST"
@@ -32,6 +32,6 @@ export class LocalStorageService {
     return false;
   }
   get isLocalStorageSupported(): boolean {
-    return !!this.localStorage
+    return !!this.localStorage;
   }
 }

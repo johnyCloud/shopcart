@@ -1,6 +1,7 @@
-<app-tabel [cartList]="cartList" [totals]="totals" [getTotal]="getTotalById" [cartFlag]="cartFlag" (tminus)="minus($event)" (tplus)="plus($event)"></app-tabel>
-  <div>
-      <h6>Price: {{getTotalPrice() |  currency}}</h6>
-     <button class="btn btn-danger" (click)="clear()">Clear Cart</button>
-     <a class="btn btn-primary mx-3" (click)="checkout()" routerLink="checkout" >CheckOut</a>
-  </div>
+<app-tabel [cartList]="cartList" [totals]="totals" [getTotal]="getTotalById" [cartFlag]="cartFlag"
+  (tminus)="minus($event)" (tplus)="plus($event)"></app-tabel>
+<div>
+  <h6>Price: {{getTotalPrice() | currency}}</h6>
+  <button class="btn btn-danger" (click)="clear()">Clear Cart</button>
+  <a class="btn btn-primary mx-3" (click)="checkout()" routerLink="checkout">CheckOut</a>
+</div>

@@ -1,28 +1,28 @@
 <div class="border rounded mx-auto p-2 mt-5" style="max-width: 400px;">
-    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
 
-        <div class="mb-3">
-          <label for="name" class="form-label">
-            Name
-          </label>
-          <input  class="form-control" id="name" type="text" formControlName="name">
-        </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">
+        Name
+      </label>
+      <input class="form-control" id="name" type="text" formControlName="name">
+    </div>
 
-        <div class="mb-3">
-            <label for="phone" class="form-label">
-              Phone
-            </label>
-            <input class="form-control" id="phone" type="text" formControlName="phone">
-          </div>
-      
-        <div class="mb-3">
-          <label for="address" class="form-label">
-            Address
-          </label>
-          <input  class="form-control" id="address" type="text" formControlName="address">
-        </div>
-      
-        <button class="btn btn-primary" type="submit">Buy</button>
-      
-      </form>
+    <div class="mb-3">
+      <label for="phone" class="form-label">
+        Phone
+      </label>
+      <input class="form-control" id="phone" type="text" formControlName="phone">
+    </div>
+
+    <div class="mb-3">
+      <label for="address" class="form-label">
+        Address
+      </label>
+      <input class="form-control" id="address" type="text" formControlName="address">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Buy</button>
+
+  </form>
 </div>
