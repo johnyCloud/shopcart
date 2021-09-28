@@ -2,6 +2,7 @@
 2 from main page to product list +
 3 product list +
 4 infinite scroll -
+4.1 add amgular in memory
 5 singale product ditails page +
 6 add product to cartt +
 7 display total count of products +
