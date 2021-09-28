@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 //add
 import { PorductsModule } from '../porducts/porducts.module';
 import { MainComponent } from './main/main/main.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -25,7 +26,8 @@ import { MainComponent } from './main/main/main.component';
   imports: [
     AppRoutingModule,
     CommonModule,
-    PorductsModule
+    PorductsModule,
+    BrowserAnimationsModule
   ],
   exports:[
     HomeComponent,

@@ -31,6 +31,9 @@ import { TabelComponent } from './tabel/tabel.component';
     CartComponent,
     CheckoutComponent,
     FormComponent
-  ]
+  ],
+
+ 
+
 })
 export class CartModule { }

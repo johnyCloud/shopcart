@@ -5,7 +5,7 @@ import {Product} from '../models/product'
   providedIn: 'root'
 })
 export class ProductsService {
-  products: Product[] = [];
+  products?: Product[] ;
 
   addItems(items: Product[]){
     this.products = [...items];
@@ -14,7 +14,7 @@ export class ProductsService {
     return this.products;
   }
   getItemById(id : number){
-    return this.products.find((item)=> item.id === id)
+    return this.products?.find((item)=> item.id === id)
   }
   constructor() { }
 }

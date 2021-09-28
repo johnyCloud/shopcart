@@ -19,6 +19,8 @@ export class AppComponent {
   getProductList() {
     this.api.getProducts().subscribe((res) => {
       this.productsService.addItems([...res]);
+      console.log(res);
+      
     });
   }
 }

@@ -16,7 +16,7 @@
             <td><img class="img-thumbnail" src={{item.image}} alt="" style="max-width: 50px;"></td>
             <td>{{item.price |  currency}}</td>
             <td *ngIf="checkFlag">{{getTotal(item.id)}} <button class="btn btn-danger" (click)="eventminus(item.id)">X</button></td>
-            <td *ngIf="cartFlag"><button class="btn" (click)="eventplus(item.id)">+</button>{{getTotal(item.id)}}<button class="btn" (click)="eventminus(item.id)">-</button></td>
+            <td *ngIf="cartFlag"><button class="btn shadow-none " (click)="eventplus(item.id)">+</button>{{getTotal(item.id)}}<button class="btn shadow-none " (click)="eventminus(item.id)">-</button></td>
          </tr>
     </tbody>
   </table>

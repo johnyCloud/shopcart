@@ -57,10 +57,16 @@ export class CartService {
     return this.totals;
   }
 
+  getTotalNr() {
+    let total = 0;
+    this.totals.forEach((item) => {
+      total += item.total;
+    });
+    return total;
+  }
   remove(id: number) {
     this.cartList = this.cartList.filter((item) => item.id !== id);
     this.totals = this.totals.filter((item) => item.id !== id);
-    console.log(this.cartList);
   }
 
   clearCart() {
