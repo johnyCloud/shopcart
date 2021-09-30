@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PorductsModule } from '../porducts/porducts.module';
 import { MainComponent } from './main/main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     CommonModule,
     PorductsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   exports:[
     HomeComponent,

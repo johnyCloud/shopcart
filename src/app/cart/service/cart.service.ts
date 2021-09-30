@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Product } from 'src/app/porducts/models/product';
 import { Totals } from './totals';
 
@@ -6,72 +7,71 @@ import { Totals } from './totals';
   providedIn: 'root',
 })
 export class CartService {
-  constructor() {}
 
-  private cartList: Product[] = [];
-  private totals: Totals[] = [];
+  public cartItemList : any =[]
+  public productList = new BehaviorSubject<any>([]);
+  public search = new BehaviorSubject<string>("");
 
-  addItem(item: Product) {
-    if (this.cartList.find((el) => el.id === item.id)) {
-      //let selctedTotal = this.totals.find(elemnt => elemnt.id === item.id)
+  constructor() { }
+  getProducts(){
+    return this.productList.asObservable();
+  }
+  setProduct(product : any){
+    this.cartItemList.push(...product);
+    this.productList.next(product);
+  }
+  addtoCart(product : any){
+    let select = this.cartItemList.find((elemnt: any) => elemnt.id === product.id)
+    if(select) {
+      select.quantity += 1
     } else {
-      this.cartList.push(item);
-      this.totals.push({ id: item.id, total: 1 });
+      this.cartItemList.push(product);
     }
+    this.productList.next(this.cartItemList);
+    this.getTotalPrice();
+    console.log(this.productList);
+    
+    console.log(this.cartItemList)
   }
 
-  addItems(items: Product[]) {
-    items.forEach((item) => {
-      this.addItem(item);
-    });
-  }
-
-  addTotals(totals: Totals[]) {
-    totals.forEach((item) => {
-      if (!this.totals.find((el) => el.id === item.id)) {
-        this.totals.push(item);
+  plus(id: any) {
+    this.cartItemList.map((a:any, index:any)=>{
+      if(id === a.id){
+        a.quantity += 1;
+        a.total = a.price * a.quantity;
       }
-    });
+    })
+    this.productList.next(this.cartItemList);
   }
-
-  getItems() {
-    return this.cartList;
-  }
-  getTotals() {
-    return this.totals;
-  }
-
-  plus(id: number): Totals[] {
-    let selctedTotal = this.totals.find((elemnt) => elemnt.id === id);
-    selctedTotal!.total += 1;
-    return this.totals;
-  }
-  minus(id: number): Totals[] {
-    let selctedTotal = this.totals.find((elemnt) => elemnt.id === id);
-    if (selctedTotal!.total >= 1) {
-      selctedTotal!.total -= 1;
-    } else {
-      this.cartList = this.cartList.filter((item) => item.id !== id);
-      this.totals = this.totals.filter((item) => item !== selctedTotal);
+  minus(id : any){
+    let selctedItem = this.cartItemList.find((elemnt: any) => elemnt.id === id)
+    
+    if ( selctedItem.quantity > 1){
+      selctedItem.quantity -= 1;
+      selctedItem.total = selctedItem.price * selctedItem.quantity;
+    } else  {
+      this.cartItemList = this.cartItemList.filter((item: any) => item.id !== selctedItem.id)
     }
-    return this.totals;
+    this.productList.next(this.cartItemList);
   }
 
-  getTotalNr() {
-    let total = 0;
-    this.totals.forEach((item) => {
-      total += item.total;
-    });
-    return total;
+  getTotalPrice() : number{
+    let grandTotal = 0;
+    this.cartItemList.map((a:any)=>{
+      grandTotal += a.total;
+    })
+    return grandTotal;
   }
-  remove(id: number) {
-    this.cartList = this.cartList.filter((item) => item.id !== id);
-    this.totals = this.totals.filter((item) => item.id !== id);
+  removeCartItem(product: any){
+    this.cartItemList.map((a:any, index:any)=>{
+      if(product.id=== a.id){
+        this.cartItemList.splice(index,1);
+      }
+    })
+    this.productList.next(this.cartItemList);
   }
-
-  clearCart() {
-    this.cartList = [];
-    this.totals = [];
-    return [];
+  removeAllCart(){
+    this.cartItemList = []
+    this.productList.next(this.cartItemList);
   }
 }

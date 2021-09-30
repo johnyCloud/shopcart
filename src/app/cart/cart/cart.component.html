@@ -1,7 +1,32 @@
-<app-tabel [cartList]="cartList" [totals]="totals" [getTotal]="getTotalById" [cartFlag]="cartFlag"
-  (tminus)="minus($event)" (tplus)="plus($event)"></app-tabel>
+ 
+<!--   
 <div>
   <h6>Price: {{getTotalPrice() | currency}}</h6>
   <button class="btn btn-danger" (click)="clear()">Clear Cart</button>
   <a class="btn btn-primary mx-3" (click)="checkout()" routerLink="checkout">CheckOut</a>
-</div>
+</div> -->
+
+<ng-container *ngIf="products.length !=0">
+    <app-tabel [cartList]="products"   
+    (tminus)="minus($event)" (tplus)="plus($event)" (tremove)="removeItem($event)"></app-tabel>
+    
+      <div class="d-flex justify-content-end">
+          <button (click)="emptycart()" class="btn btn-danger me-2">Empty Cart</button>
+      <button routerLink="/list" class="btn btn-primary me-2">Shop More</button>
+      <a routerLink="checkout" class="btn btn-success me-2">Checkout</a>
+      <strong>Total : {{grandTotal | currency}}</strong>
+  
+      </div>
+</ng-container>
+
+
+<ng-container *ngIf="products.length ==0">
+  <div class="container">
+      
+      <div class="center mt-5 text-center">
+          <h4>Your cart is empty!</h4>
+         
+          <button routerLink="/list" class="btn btn-primary">Shop Now</button>
+      </div>
+  </div>
+</ng-container>

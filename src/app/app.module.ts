@@ -12,11 +12,13 @@ import { CartModule } from './cart/cart.module';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+//import { FilterPipe } from './shared/pipes/filter.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    //FilterPipe
   ],
   imports: [
     BrowserModule,

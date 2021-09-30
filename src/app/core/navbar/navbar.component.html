@@ -1,6 +1,18 @@
 
-<nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="">FakeShop</a> <a class=" nav-item nav-link" routerLink="list">Products</a> <a class="navbar-brand" routerLink="cart">Cart<span class=" btn px-1 py-0 mx-1 btn-danger .text-dark">{{getTotalNr()}}</span></a>
+  <nav>
+    <div class="navbar navbar-dark bg-light shadow-sm">
+        <div class=" ms-3 navbar-brand  d-flex">
+            
+          <a class="navbar-brand text-secondary" routerLink="" ><strong style="font-size: 20px;">FakeShop</strong></a>
+            <div class=" form-group">
+                <input type="text" class="form-control mt-2" style="height: 30px;" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products">
+            </div>
+        
+
+        </div>
+        <button routerLink="cart" class="btn btn-light">
+            <i style="font-size: 20px;" class="fas fa-cart-plus"></i>
+            <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+        </button>
     </div>
   </nav>

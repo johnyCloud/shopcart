@@ -9,20 +9,21 @@ import { Product } from 'src/app/porducts/models/product';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  
 
-
-  constructor(private cartService: CartService) { }
-
-  totals?: Totals[];
+  public totalItem : number = 0;
+  public searchTerm !: string;
+  constructor(private cartService : CartService) { }
 
   ngOnInit(): void {
-    
-    this.totals = this.cartService.getTotals();
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      this.totalItem = res.length;
+    })
   }
-
-  getTotalNr() {
-    return  this.cartService.getTotalNr();
+  search(event:any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    console.log(this.searchTerm);
+    this.cartService.search.next(this.searchTerm);
   }
 
 }

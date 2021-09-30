@@ -10,59 +10,37 @@ import { Totals } from '../service/totals';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+
+  public products : any = [];
+  public grandTotal !: number;
   constructor(
     private cartService: CartService,
-    private localStorge: LocalStorageService
+  //  private localStorge: LocalStorageService
   ) {}
 
-  cartList?: Product[];
-  totals?: Totals[];
-  cartFlag = 1;
+  // cartList?: Product[];
+  // totals?: Totals[];
+  // cartFlag = 1;
   key: string = 'CART-LIST';
 
   ngOnInit(): void {
-    if (this.localStorge.isLocalStorageSupported) {
-      let localList = this.localStorge.get(this.key);
-      if (localList?.cartList.length) {
-        this.cartService.addItems(<Product[]>localList.cartList);
-        this.cartService.addTotals(localList.totals);
-      }
-    }
-    this.cartList = this.cartService.getItems();
-    this.totals = this.cartService.getTotals();
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      this.products = res;
+      this.grandTotal = this.cartService.getTotalPrice();
+    })
+  }
+  removeItem(item: any){
+    this.cartService.removeCartItem(item);
+  }
+  emptycart(){
+    this.cartService.removeAllCart();
   }
 
-  plus(id: number) {
-    this.totals = this.cartService.plus(id);
+  plus(id: any) {
+    this.cartService.plus(id);
   }
-  minus(id: number) {
-    this.totals = this.cartService.minus(id);
-    this.cartList = this.cartService.getItems();
-  }
-
-  getTotalById(id: number) {
-    return this.totals?.find((elemnt) => elemnt.id === id)?.total;
-  }
-
-  getTotalPrice() {
-    let price = 0;
-    this.totals?.forEach((item) => {
-      let pr = this.cartList?.find((el) => el.id === item.id)?.price;
-      price += pr! * item.total;
-    });
-    return price;
-  }
-
-  clear() {
-    this.cartList = this.cartService.clearCart();
-    this.totals = [];
-    this.localStorge.remove(this.key);
-  }
-
-  checkout() {
-    this.localStorge.set(this.key, {
-      cartList: this.cartList,
-      totals: this.totals,
-    });
+  minus(product: any){
+    this.cartService.minus(product);
   }
 }

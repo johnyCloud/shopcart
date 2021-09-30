@@ -5,7 +5,8 @@
         <th scope="col">Product</th>
         <th scope="col">Image</th>
         <th scope="col">Price</th>
-        <th scope="col">Qty</th>
+        <th scope="col">Total</th>
+        <th scope="col text-center"><span>Qty</span></th>
       </tr>
     </thead>
     <tbody>
@@ -15,8 +16,13 @@
             <td>{{item.title}}</td>
             <td><img class="img-thumbnail" src={{item.image}} alt="" style="max-width: 50px;"></td>
             <td>{{item.price |  currency}}</td>
-            <td *ngIf="checkFlag">{{getTotal(item.id)}} <button class="btn btn-danger" (click)="eventminus(item.id)">X</button></td>
-            <td *ngIf="cartFlag"><button class="btn shadow-none " (click)="eventplus(item.id)">+</button>{{getTotal(item.id)}}<button class="btn shadow-none " (click)="eventminus(item.id)">-</button></td>
+            <td>{{item.total |  currency}}</td>
+            <!-- <td >{{getTotal(item.id)}} <button class="btn btn-danger" (click)="eventminus(item.id)">-</button></td> -->
+            <td class="">
+              <button class="btn shadow-none me-0" (click)="eventplus(item.id)">+</button><span>{{item.quantity }}</span>
+              <button class="btn shadow-none " (click)="eventminus(item.id)">-</button>
+              <button  class="btn btn-danger m-0  " (click)="eventremove(item)"><i class="fas fa-trash-alt " style="font-size: 10px;"></i></button>
+            </td>
          </tr>
     </tbody>
   </table>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/porducts/models/product';
-import { ProductsService } from 'src/app/porducts/service/products.service';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-details',
@@ -12,13 +12,16 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productsService: ProductsService
+    private api: ApiService
   ) { }
 
   product?: Product;
   ngOnInit(): void {
-    let selectId = this.route.snapshot.paramMap.get('id');
-    this.product = this.productsService.getItemById(parseInt(<string>selectId));
+    let selectId: string | null = this.route.snapshot.paramMap.get('id');
+    this.api.getProductById(selectId!)
+    .subscribe((res: Product | undefined)=>{
+      this.product = res;
+    });
   }
 
 }

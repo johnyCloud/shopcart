@@ -5,10 +5,13 @@ import { AppRoutingModule } from '../app-routing.module';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 
+import { FilterPipe } from '../shared/pipes/filter.pipe';
+
 @NgModule({
   declarations: [
     ProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,

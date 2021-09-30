@@ -9,18 +9,18 @@ import { ApiService } from './shared/services/api.service';
 })
 export class AppComponent {
   constructor(
-    private api: ApiService,
-    private productsService: ProductsService
+    // private api: ApiService,
+    // private productsService: ProductsService
   ) {}
   ngOnInit(): void {
-    this.getProductList();
+    // this.getProductList();
   }
 
-  getProductList() {
-    this.api.getProducts().subscribe((res) => {
-      this.productsService.addItems([...res]);
-      console.log(res);
+  // getProductList() {
+  //   this.api.getProducts().subscribe((res) => {
+  //     this.productsService.addItems([...res]);
+  //     console.log(res);
       
-    });
-  }
+  //   });
+  // }
 }
