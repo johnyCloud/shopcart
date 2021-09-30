@@ -14,10 +14,10 @@ import { ProductsService } from '../service/products.service';
     trigger('fade', [      
       transition('void => *', [
         style({opacity: 0}),
-        animate(400, style({opacity: 1}))
+        animate(500, style({opacity: 1}))
       ]),
       transition('* => void', [
-        animate(400, style({opacity: 0}))
+        animate(500, style({opacity: 0}))
       ])
     ])
   ],

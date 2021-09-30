@@ -7,7 +7,7 @@
   <app-tabel [cartList]="products"   
   (tminus)="minus($event)" (tplus)="plus($event)" (tremove)="removeItem($event)"></app-tabel>
   
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end ">
         <button (click)="emptycart()" class="btn btn-danger me-2">Empty Cart</button>
     <button routerLink="/list" class="btn btn-primary me-2">Shop More</button>
    
@@ -18,3 +18,5 @@
 
 <app-form></app-form> 
 
+<br>
+<br>

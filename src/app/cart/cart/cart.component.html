@@ -10,7 +10,7 @@
     <app-tabel [cartList]="products"   
     (tminus)="minus($event)" (tplus)="plus($event)" (tremove)="removeItem($event)"></app-tabel>
     
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-end pb-5 mb-5">
           <button (click)="emptycart()" class="btn btn-danger me-2">Empty Cart</button>
       <button routerLink="/list" class="btn btn-primary me-2">Shop More</button>
       <a routerLink="checkout" (click)="checkout(products)"  class="btn btn-success me-2">Checkout</a>

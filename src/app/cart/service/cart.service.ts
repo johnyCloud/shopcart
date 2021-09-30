@@ -24,6 +24,7 @@ export class CartService {
     let select = this.cartItemList.find((elemnt: any) => elemnt.id === product.id)
     if(select) {
       select.quantity += 1
+      select.total = select.price * select.quantity;
     } else {
       this.cartItemList.push(product);
     }
