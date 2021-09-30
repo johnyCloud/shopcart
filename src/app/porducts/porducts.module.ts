@@ -4,6 +4,7 @@ import { AppRoutingModule } from '../app-routing.module';
 
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { FormsModule } from '@angular/forms';
 
 import { FilterPipe } from '../shared/pipes/filter.pipe';
 
@@ -15,7 +16,8 @@ import { FilterPipe } from '../shared/pipes/filter.pipe';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   exports: [
     ProductListComponent,

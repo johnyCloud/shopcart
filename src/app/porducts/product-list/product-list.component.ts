@@ -14,6 +14,8 @@ export class ProductListComponent implements OnInit {
 
   public productList : any ;
   public filterCategory : any
+  priceRange: number = 1000;
+  ratingRange: number = 5;
   searchKey:string ="";
   constructor(private api : ApiService, private cartService : CartService) { }
 
@@ -38,10 +40,27 @@ export class ProductListComponent implements OnInit {
 
   filter(category:string){
     this.filterCategory = this.productList
-    .filter((a:any)=>{
-      if(a.category == category || category==''){
-        return a;
+    .filter((item:any)=>{
+      if(item.category == category || category==''){
+        return item;
       }
+    })
+  }
+
+  priceFilter(price : any){
+    //console.log(typeof price);
+    this.filterCategory = this.productList.filter((item: any)=>{
+      let iprice = item.price
+     if ( typeof iprice === 'string')  iprice = parseFloat(iprice);
+     if (iprice < parseInt(price)) return item;
+    })
+  }
+  ratingFilter(rating : any){
+    //console.log(rating);
+    this.filterCategory = this.productList.filter((item: any)=>{
+      let irate = item.rating.rate
+     if ( typeof irate === 'string')  irate = parseFloat(irate);
+     if (irate < parseInt(rating)) return item;
     })
   }
 }

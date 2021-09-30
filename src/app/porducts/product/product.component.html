@@ -4,6 +4,7 @@
     <div class="card-body">
         <h5 class="card-title" style="max-height: 25px; overflow: hidden;">{{product.title}}</h5>
         <p class="card-text" style="max-height: 100px; overflow: hidden;">{{product.description}}</p>
+        <p class="card-text"><span class="fa fa-star-o" data-rating="1"> {{product.rating.rate}}</span></p>
         <p class="card-text d-flex"><span class="dt">Price: {{product.price | currency}}</span> <button  class="btn btn-primary ms-auto button " (click)="addtocart(product)">Buy<i class="bi bi-cart"></i></button></p>
          
       </div>

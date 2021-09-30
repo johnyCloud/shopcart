@@ -1,23 +1,23 @@
 <div class=" ">
     <div class="container d-flex mt-3 flex-wrap justify-content-center">
-        <div class="  mx-2 p-2 bg-info  text-white">
+        <div class=" mx-2 p-2 btn btn-info text-white">
             <a (click)="filter('')">
                 <h6>All</h6>
             </a>
         </div>
-        <div class="  mx-2 p-2 bg-info  text-white" >
+        <div class="pointer  mx-2 p-2 btn btn-info text-white" >
             <a (click)="filter('electronics')">
                 
                 <h6>Electronics</h6>
             </a>
         </div>
-        <div class="  mx-2 p-2 bg-info  text-white">
+        <div class=" pointer mx-2 p-2 btn btn-info text-white">
             <a (click)="filter('fashion')">
                 
                 <h6>Fashion</h6>
             </a>
         </div>
-        <div class=" mx-2 p-2 bg-info  text-white">
+        <div class=" pointer mx-2 p-2 btn btn-info text-white">
             <a (click)="filter('jewelery')">
                 <h6>Jewllery</h6>
             </a>
@@ -28,11 +28,17 @@
 <div class="d-flex justify-content-center mt-3 text-center">
     <div class="mx-2">
         <label for="customRange3" class="form-label">Price range</label>
-        <input type="range" class="form-range" min="0" max="1000" value="0" id="customRange3">
+        <div class="d-flex">
+            <span>0 </span>
+        <input type="range" class="form-range mx-2"  min="0" max={{priceRange}} step="100" value="1000" #prange (input)="priceFilter(prange.value)"  id="customRange3">
+        <span> 1000</span>
+        </div>
     </div>
     <div class="mx-2">
         <label for="customRange3" class="form-label">Rating range</label>
-        <input type="range" class="form-range" min="0" max="5" value="0"  id="customRange3">
+        <div class="d-flex">
+            <span>0 </span><input type="range" class="form-range mx-2" min="0" max={{ratingRange}}  value="5" #rrange (input)="ratingFilter(rrange.value)"  id="customRange3"><span> 5</span>
+        </div>
     </div>
 </div>
 <div class="d-flex flex-wrap justify-content-center " >
