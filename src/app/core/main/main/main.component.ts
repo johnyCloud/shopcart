@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { animate, style, group, state, transition, trigger,  } from '@angular/animations';
+import { CartService } from 'src/app/cart/service/cart.service';
+import { LocalStorageService } from 'src/app/cart/service/local-storage.service';
 
 @Component({
   selector: 'app-main',
@@ -30,13 +32,29 @@ import { animate, style, group, state, transition, trigger,  } from '@angular/an
 
 export class MainComponent implements OnInit {
   // hover = false;
-  constructor() {}
+  constructor(
+    private cartService: CartService,
+    private localStorge: LocalStorageService,
+    ) {}
 
   // get stateName() {
   //   return this.hover ? 'hover' : 'not'
   // }
-
-  ngOnInit(): void {}
+  public products : any = [];
+  key: string = 'CART-LIST';
+  ngOnInit(): void {
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      this.products = res;
+    })
+    if (this.localStorge.isLocalStorageSupported) {
+      let localList = this.localStorge.get(this.key);
+      console.log(localList);
+      if (localList) {
+        this.cartService.addItems(localList);
+      }
+    }
+  }
   // onHover(){
   //   this.hover = !this.hover;
   // }

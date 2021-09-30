@@ -29,13 +29,13 @@ export class CartComponent implements OnInit {
       this.products = res;
       this.grandTotal = this.cartService.getTotalPrice();
     })
-    if (this.localStorge.isLocalStorageSupported) {
-      let localList = this.localStorge.get(this.key);
-      console.log(localList);
-      if (localList) {
-        this.cartService.addItems(localList);
-      }
-    }
+    // if (this.localStorge.isLocalStorageSupported) {
+    //   let localList = this.localStorge.get(this.key);
+    //   console.log(localList);
+    //   if (localList) {
+    //     this.cartService.addItems(localList);
+    //   }
+    // }
   }
   removeItem(item: any){
     this.cartService.removeCartItem(item);
