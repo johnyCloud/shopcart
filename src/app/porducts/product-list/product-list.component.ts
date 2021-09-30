@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/cart/service/cart.service';
 import { Product } from 'src/app/porducts/models/product';
 import { ApiService } from 'src/app/shared/services/api.service';
@@ -9,6 +10,17 @@ import { ProductsService } from '../service/products.service';
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
+  animations: [
+    trigger('fade', [      
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(400, style({opacity: 1}))
+      ]),
+      transition('* => void', [
+        animate(400, style({opacity: 0}))
+      ])
+    ])
+  ],
 })
 export class ProductListComponent implements OnInit {
 

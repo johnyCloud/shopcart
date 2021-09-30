@@ -1,26 +1,26 @@
 <div class=" ">
     <div class="container d-flex mt-3 flex-wrap justify-content-center">
-        <div class=" mx-2 p-2 btn btn-info text-white">
-            <a (click)="filter('')">
+        <div class=" mx-2 p-2 ">
+            <button class="btn btn-info text-white" (click)="filter('')">
                 <h6>All</h6>
-            </a>
+            </button>
         </div>
-        <div class="pointer  mx-2 p-2 btn btn-info text-white" >
-            <a (click)="filter('electronics')">
+        <div class=" mx-2 p-2 " >
+            <button class="btn btn-info text-white" (click)="filter('electronics')">
                 
                 <h6>Electronics</h6>
-            </a>
+            </button>
         </div>
-        <div class=" pointer mx-2 p-2 btn btn-info text-white">
-            <a (click)="filter('fashion')">
+        <div class="  mx-2 p-2 ">
+            <button class="btn btn-info text-white" (click)="filter('fashion')">
                 
                 <h6>Fashion</h6>
-            </a>
+            </button>
         </div>
-        <div class=" pointer mx-2 p-2 btn btn-info text-white">
-            <a (click)="filter('jewelery')">
+        <div class="  mx-2 p-2 ">
+            <button class="btn btn-info text-white" (click)="filter('jewelery')">
                 <h6>Jewllery</h6>
-            </a>
+            </button>
         </div>
     </div>
 </div>
@@ -43,10 +43,10 @@
 </div>
 <div class="d-flex flex-wrap justify-content-center " >
     
-    <div *ngIf="productList; then thenBlock else elseBlock"></div>
+    <div   *ngIf="productList; then thenBlock else elseBlock"></div>
     <ng-template  #thenBlock>
       
-            <div   class="p-3" *ngFor="let product of filterCategory | filter:searchKey:'title'">
+            <div  @fade  class="p-3" *ngFor="let product of filterCategory | filter:searchKey:'title'">
                 <app-product [product]="product"></app-product>
             </div>
         
