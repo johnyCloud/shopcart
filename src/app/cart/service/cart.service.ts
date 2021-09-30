@@ -30,8 +30,13 @@ export class CartService {
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
     console.log(this.productList);
+  }
+  addItems(items: any) {
+    console.log(items);
     
-    console.log(this.cartItemList)
+    items.forEach((item: any) => {
+      this.addtoCart(item);
+    });
   }
 
   plus(id: any) {

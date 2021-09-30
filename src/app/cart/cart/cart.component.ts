@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
   public grandTotal !: number;
   constructor(
     private cartService: CartService,
-  //  private localStorge: LocalStorageService
+    private localStorge: LocalStorageService
   ) {}
 
   // cartList?: Product[];
@@ -29,12 +29,20 @@ export class CartComponent implements OnInit {
       this.products = res;
       this.grandTotal = this.cartService.getTotalPrice();
     })
+    if (this.localStorge.isLocalStorageSupported) {
+      let localList = this.localStorge.get(this.key);
+      console.log(localList);
+      if (localList) {
+        this.cartService.addItems(localList);
+      }
+    }
   }
   removeItem(item: any){
     this.cartService.removeCartItem(item);
   }
   emptycart(){
     this.cartService.removeAllCart();
+    this.localStorge.remove(this.key);
   }
 
   plus(id: any) {
@@ -42,5 +50,10 @@ export class CartComponent implements OnInit {
   }
   minus(product: any){
     this.cartService.minus(product);
+  }
+  checkout(items: any){
+    console.log(this.products);
+    
+    this.localStorge.set(this.key,items);
   }
 }

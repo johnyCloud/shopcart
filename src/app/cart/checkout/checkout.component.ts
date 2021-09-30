@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../service/cart.service';
 import { Product } from 'src/app/porducts/models/product';
 import { Totals } from '../service/totals';
+import { LocalStorageService } from '../service/local-storage.service';
 
 @Component({
   selector: 'app-checkout',
@@ -12,11 +13,11 @@ export class CheckoutComponent implements OnInit {
   public products : any = [];
   public grandTotal !: number;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private localStorge: LocalStorageService
+    ) {}
 
-  // cartList?: Product[];
-  // totals?: Totals[];
-  // checkFlag = 1;
   ngOnInit(): void {
     // this.cartList = this.cartService.getItems();
     // this.totals = this.cartService.getTotals();
@@ -26,6 +27,7 @@ export class CheckoutComponent implements OnInit {
       this.products = res;
       this.grandTotal = this.cartService.getTotalPrice();
     })
+    
   }
 
   removeItem(item: any){
