@@ -4,15 +4,27 @@
         <div class=" ms-3 navbar-brand  d-flex">
             
           <a class="navbar-brand text-secondary" routerLink="" ><strong style="font-size: 20px;">FakeShop</strong></a>
-            <div class=" form-group">
+            <!-- <div class=" form-group">
                 <input type="text" class="form-control mt-2" style="height: 30px;" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products">
+            </div> -->
+            <div class="search-toggle mx-2">
+              <input #input list="ShowDataList" type="text" placeholder="Type & Hit Enter" [(ngModel)]="searchTerm" (keyup)="search($event)" >
+              <i  class="fa fa-search"></i>
+              <datalist id="ShowDataList">
+                <option value="Men">
+                <option value="Women">
+                <option value="Gold">
+                <option value="Acer">
+                <option value="Samsung">
+                <option *ngFor="let product of products">{{product.title}}</option>
+              </datalist>
             </div>
-        
 
         </div>
         <button routerLink="cart" class="btn btn-light" (mouseover)="in()" (click)='out()'> 
             <i style="font-size: 20px;" class="fas fa-cart-plus"></i>
             <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+            
         </button>
     </div>
 
@@ -31,9 +43,9 @@
         </div>
       </div> <!--end shopping-cart-header -->
   
-      <ul class="shopping-cart-items">
+      <ul class="shopping-cart-items list-unstyled">
 
-        <li class="clearfix" *ngFor="let item of products">
+        <li class="clearfix " *ngFor="let item of products">
           <img src={{item.image}} alt="item1" style="width: 60px;" />
           <span class="item-name">{{item.title}}</span>
           <span class="item-price">{{item.price | currency}}</span>

@@ -44,6 +44,7 @@ export class NavbarComponent implements OnInit {
   search(event:any){
     this.searchTerm = (event.target as HTMLInputElement).value;
     this.cartService.search.next(this.searchTerm);
+    //this.searchTerm = ""
   }
 
   in(){

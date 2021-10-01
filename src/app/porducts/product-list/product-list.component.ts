@@ -1,6 +1,7 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/cart/service/cart.service';
+import { LocalStorageService } from 'src/app/cart/service/local-storage.service';
 import { Product } from 'src/app/porducts/models/product';
 import { ApiService } from 'src/app/shared/services/api.service';
 
@@ -29,7 +30,8 @@ export class ProductListComponent implements OnInit {
   priceRange: number = 1000;
   ratingRange: number = 5;
   searchKey:string ="";
-  constructor(private api : ApiService, private cartService : CartService) { }
+  key: string = 'CART-LIST';
+  constructor(private api : ApiService, private cartService : CartService, private localStorge: LocalStorageService) { }
 
   ngOnInit(): void {
     this.api.getProduct()
@@ -48,6 +50,14 @@ export class ProductListComponent implements OnInit {
     this.cartService.search.subscribe((val:any)=>{
       this.searchKey = val;
     })
+
+    if (this.localStorge.isLocalStorageSupported) {
+      let localList = this.localStorge.get(this.key);
+      console.log(localList);
+      if (localList) {
+        this.cartService.addItems(localList);
+      }
+    }
   }
 
   filter(category:string){

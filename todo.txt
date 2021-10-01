@@ -16,3 +16,27 @@
 11 checkout form order the products +
 12 keep products from cart in localstoage
 / sync them with the cart +
+
+!added later
+13.category filter +
+14. price/rating filter +
+15. search bar +
+16.side cart  +
+17. fade animation for productlist +
+
+18. side cart slide animation -
+
+--to correct
+01/10
+sync cart service with localstorage +
+add filter list dropdown to search bar+
+"""""""add clean 'X' to searchbar"""""""(new it clean it self after search)+
+remove decoration from side cart
+make cardproduct same size +
+add saome animation
+remake  main page
+
+
+
+
+

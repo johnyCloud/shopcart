@@ -39,6 +39,7 @@ export class CartComponent implements OnInit {
   }
   removeItem(item: any){
     this.cartService.removeCartItem(item);
+    this.localStorge.set(this.key, this.products)
   }
   emptycart(){
     this.cartService.removeAllCart();
@@ -47,9 +48,11 @@ export class CartComponent implements OnInit {
 
   plus(id: any) {
     this.cartService.plus(id);
+    this.localStorge.set(this.key, this.products)
   }
   minus(product: any){
     this.cartService.minus(product);
+    this.localStorge.set(this.key, this.products)
   }
   checkout(items: any){
     console.log(this.products);
