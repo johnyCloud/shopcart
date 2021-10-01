@@ -31,10 +31,10 @@
 sync cart service with localstorage +
 add filter list dropdown to search bar+
 """""""add clean 'X' to searchbar"""""""(new it clean it self after search)+
-remove decoration from side cart
+remove decoration from side cart+
 make cardproduct same size +
-add saome animation
-remake  main page
+add saome animation+
+remake  main page +
 
 
 

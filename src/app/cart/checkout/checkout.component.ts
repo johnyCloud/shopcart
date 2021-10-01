@@ -12,7 +12,7 @@ import { LocalStorageService } from '../service/local-storage.service';
 export class CheckoutComponent implements OnInit {
   public products : any = [];
   public grandTotal !: number;
-
+  key: string = 'CART-LIST';
   constructor(
     private cartService: CartService,
     private localStorge: LocalStorageService
@@ -22,11 +22,19 @@ export class CheckoutComponent implements OnInit {
     // this.cartList = this.cartService.getItems();
     // this.totals = this.cartService.getTotals();
     // console.log(this.cartList, this.totals);
+    
     this.cartService.getProducts()
     .subscribe(res=>{
       this.products = res;
       this.grandTotal = this.cartService.getTotalPrice();
     })
+    if (this.localStorge.isLocalStorageSupported) {
+      let localList = this.localStorge.get(this.key);
+      console.log(localList);
+      if (localList) {
+        this.cartService.addItems(localList);
+      }
+    }
     
   }
 
