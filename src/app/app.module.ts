@@ -12,6 +12,7 @@ import { CartModule } from './cart/cart.module';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 //import { FilterPipe } from './shared/pipes/filter.pipe';
 
 
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     HttpClientModule,
     CoreModule,

@@ -44,7 +44,7 @@ export class ProductListComponent implements OnInit {
         }
         Object.assign(a,{quantity:1,total:a.price});
       });
-      console.log(this.productList)
+      console.table(this.productList)
     });
 
     this.cartService.search.subscribe((val:any)=>{
