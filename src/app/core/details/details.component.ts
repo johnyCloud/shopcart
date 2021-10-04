@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/cart/service/cart.service';
 import { Product } from 'src/app/porducts/models/product';
 import { ApiService } from 'src/app/shared/services/api.service';
 
@@ -12,7 +13,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private cartService: CartService
   ) { }
 
   product?: Product;
@@ -22,6 +24,9 @@ export class DetailsComponent implements OnInit {
     .subscribe((res: Product | undefined)=>{
       this.product = res;
     });
+  }
+  addtocart(){
+    this.cartService.addtoCart(this.product);
   }
 
 }

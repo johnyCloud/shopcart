@@ -6,7 +6,8 @@
   <a class="btn btn-primary mx-3" (click)="checkout()" routerLink="checkout">CheckOut</a>
 </div> -->
 
-<ng-container *ngIf="products.length !=0">
+<div class="container">
+  <ng-container *ngIf="products.length !=0">
     <app-tabel [cartList]="products"   
     (tminus)="minus($event)" (tplus)="plus($event)" (tremove)="removeItem($event)"></app-tabel>
     
@@ -30,3 +31,4 @@
       </div>
   </div>
 </ng-container>
+</div>

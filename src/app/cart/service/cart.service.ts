@@ -16,6 +16,9 @@ export class CartService {
   getProducts(){
     return this.productList.asObservable();
   }
+  getProduct(id: number){
+    return this.cartItemList.find((elemnt: any) => elemnt.id === id)
+  }
   setProduct(product : any){
     this.cartItemList.push(...product);
     this.productList.next(product);

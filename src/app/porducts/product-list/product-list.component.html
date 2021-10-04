@@ -37,7 +37,7 @@
     <div class="mx-2">
         <label for="customRange3" class="form-label">Rating range</label>
         <div class="d-flex">
-            <span>0 </span><input type="range" class="form-range mx-2" min="0" max={{ratingRange}}  value="5" #rrange (input)="ratingFilter(rrange.value)"  id="customRange3"><span> 5</span>
+            <span>0 </span><input type="range" class="form-range mx-2" min="0" step="0.5" max={{ratingRange}}  value="5" #rrange (input)="ratingFilter(rrange.value)"  id="customRange3"><span> 5</span>
         </div>
     </div>
 </div>
