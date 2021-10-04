@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { slideInAnimation } from './animation';
 import { ProductsService } from './porducts/service/products.service';
 import { ApiService } from './shared/services/api.service';
 
@@ -6,6 +8,9 @@ import { ApiService } from './shared/services/api.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  animations: [
+    slideInAnimation
+  ]
 })
 export class AppComponent {
   constructor(
@@ -23,4 +28,8 @@ export class AppComponent {
       
   //   });
   // }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
 }
